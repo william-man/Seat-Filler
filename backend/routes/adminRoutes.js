@@ -6,13 +6,13 @@ const {
   putAdminFilms,
   postAdminFilms,
 } = require("../controllers/adminControllers");
+const { protect } = require("../middleware/authMiddleware");
+const bodyParser = require("body-parser");
 
-router.route("/").get(getAdminFilms);
-
-router
-  .route("/")
-  .delete(deleteAdminFilms)
-  .put(putAdminFilms)
-  .post(postAdminFilms);
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+router.get("/read", protect, getAdminFilms);
+router.delete("/delete", urlencodedParser, protect, deleteAdminFilms);
+router.put("/update", protect, urlencodedParser, putAdminFilms);
+router.post("/create", protect, urlencodedParser, postAdminFilms);
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler");
-const Film = require("../models/filmsModel");
+const Film = require("../models/filmsSchema");
 
 // @desc   GET list of films
 // @route GET /films

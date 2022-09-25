@@ -1,6 +1,7 @@
 const express = require("express");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
+
 const connectDB = require("./config/db");
 
 connectDB();
@@ -8,6 +9,7 @@ connectDB();
 //@Routes
 const filmRoutes = require("./routes/filmsRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const userRoutes = require("./routes/userRoutes");
 //@Middleware
 const { errorHandler } = require("./middleware/errorMiddleware");
 
@@ -21,9 +23,10 @@ app.get("/", (req, res) => {
 
 app.use("/films", filmRoutes);
 app.use("/admin", adminRoutes);
+app.use("/users", userRoutes);
 
 app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`);
+  console.log(`App currently listening on port ${port}!`);
 });
