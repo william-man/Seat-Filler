@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 2% 15%;
+  border-bottom: 2px grey solid;
+
+  .logo {
+    grid-column-start: 1;
+    font-size: 1.2em;
+  }
+
+  .nav {
+    grid-column-start: 2;
+
+    li {
+      float: left;
+      display: block;
+      margin: 0 10px;
+      font-size: 1.2em;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
