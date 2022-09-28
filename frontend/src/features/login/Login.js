@@ -1,36 +1,57 @@
 import React from "react";
 import Layout from "../../components/layout/Layout";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = formData;
+
+  const formChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
   return (
     <Layout>
-      <div>
+      <section>
         <div>
           <h3>Log in</h3>
         </div>
         <div>
-          <div>
-            <h4>Email</h4>
-          </div>
-          <div>
-            <p>
-              Need an account? <a href="/register">Sign up!</a>
-            </p>
-          </div>
+          <p>
+            Need an account? <Link to="/register">Sign up! </Link>
+          </p>
         </div>
-        <div>
-          <input type={"text"}></input>
-        </div>
-        <div>
-          <h4>Password</h4>
-        </div>
-        <div>
-          <input type={"text"}></input>
-        </div>
-        <div>
-          <button type="submit">Log in</button>
-        </div>
-      </div>
+        <form>
+          <label htmlFor="email">Email:</label>
+          <input
+            type={"text"}
+            id="email"
+            name="email"
+            value={email}
+            placeholder="Enter your email"
+            onChange={formChange}
+          />
+          <label htmlFor="password">Password:</label>
+          <input
+            type={"text"}
+            id="password"
+            name="password"
+            value={password}
+            placeholder="Enter your password"
+            onChange={formChange}
+          />
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+      <section>{formData.email}</section>
+      <section>{formData.password}</section>
     </Layout>
   );
 };
