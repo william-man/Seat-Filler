@@ -1,6 +1,7 @@
 const express = require("express");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
+const path = require("path");
 
 const connectDB = require("./config/db");
 
@@ -19,15 +20,26 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Hello World ASDF!");
-});
-
 app.use("/films", filmRoutes);
 app.use("/admin", adminRoutes);
 app.use("/users", userRoutes);
 app.use("/payment", paymentRoutes);
 app.use("/booking", bookingRoutes);
+
+//serve frontend
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(
+      path.resolve(__dirname, "../", "frontend", "build", "index.html")
+    );
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("Please set environment to production.");
+  });
+}
 app.use(errorHandler);
 
 app.listen(port, () => {
