@@ -11,9 +11,17 @@ const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
   //check if all fields are filled in
-  if (!name || !email || !password) {
+  if (!name) {
     res.status(400);
-    throw new Error("Please complete all fields.");
+    throw new Error("Please complete name field.");
+  }
+  if (!email) {
+    res.status(400);
+    throw new Error("Please complete email field");
+  }
+  if (!password) {
+    res.status(400);
+    throw new Error("Please complete password field");
   }
 
   //check if user exists
@@ -67,6 +75,7 @@ const loginUser = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
+    res.status(400);
     throw new Error("Invalid email or password.");
   }
 });

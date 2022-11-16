@@ -1,0 +1,120 @@
+.checkout-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto auto auto auto auto;
+  gap: 20px;
+  margin: 0px 33%;
+  background-color: #d1d1d1;
+  padding: 10px 20px;
+
+  .checkout-heading {
+    grid-column: 1/3;
+    grid-row: 1;
+  }
+  .loader {
+    grid-column: 1/3;
+    grid-row: 2;
+    text-align: center;
+  }
+  .error {
+    grid-column: 1/3;
+    grid-row: 2;
+    text-align: center;
+    background-color: #b70015;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 0;
+  }
+  .success {
+    grid-column: 1/3;
+    grid-row: 2;
+    text-align: center;
+    background-color: #09ae00;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 0;
+  }
+  .checkout-film {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .checkout-tickets {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .checkout-tickets-number {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .checkout-time {
+    grid-column: 1;
+    grid-row: 5;
+  }
+  .checkout-time-selected {
+    grid-column: 2;
+    grid-row: 5;
+  }
+  .checkout-price {
+    grid-column: 1;
+    grid-row: 6;
+  }
+  .checkout-price-number {
+    grid-column: 2;
+    grid-row: 6;
+  }
+  .checkout-total {
+    grid-column: 1;
+    grid-row: 7;
+  }
+  .checkout-total-number {
+    grid-column: 2;
+    grid-row: 7;
+  }
+  .checkout-form {
+    grid-column: 1/3;
+    grid-row: 8;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    label {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    input {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    button {
+      grid-column: 1/3;
+      grid-row: 2;
+      max-width: 33%;
+      margin: 10px 33%;
+    }
+  }
+}
+@media only screen and (max-width: 640px) {
+  .checkout-container {
+    margin: 0;
+    .checkout-form {
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto auto;
+      label {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      input {
+        grid-column: 1;
+        grid-row: 2;
+        max-width: 200px;
+        margin-left: 0;
+      }
+      button {
+        grid-column: 1/3;
+        grid-row: 3;
+        max-width: 33%;
+        margin: 10px auto;
+      }
+    }
+  }
+}

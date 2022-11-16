@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import Layout from "../../components/layout/Layout";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { registerUser, reset } from "../auth/authSlice";
-import { is } from "immer/dist/internal";
+import Spinner from "../../components/spinner";
+import "../../styles/features/register/register.scss";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +13,7 @@ const Register = () => {
     password: "",
     confirm_password: "",
   });
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,86 +32,101 @@ const Register = () => {
   };
   // handle user submit
   const formSubmit = (e) => {
-    e.peventDefault()
-
-    if(password !== confirm_password){
-
+    dispatch(reset());
+    if (password !== confirm_password) {
+      setError("Your passwords do not match.");
     } else {
       const userData = {
         name,
         email,
-        password
-      }
-      dispatch(registerUser(userData))
+        password,
+      };
+      dispatch(registerUser(userData));
     }
+    e.preventDefault();
   };
 
-  // Check and watch state changes for register
+  //reset auth state on load
   useEffect(() => {
-    if(isError){
+    dispatch(reset());
+  }, [dispatch]);
+  // Check and watch state changes for register
 
+  useEffect(() => {
+    if (isError) {
+      setError(message);
     }
-    if(isSuccess || user) {
-      navigate('/')
+    if (isSuccess || user) {
+      dispatch(reset());
+      navigate("/");
     }
-    dispatch(reset())
-  },[user, isError, isSuccess, message, navigate, dispatch])
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
-    <Layout>
-      <section>
-        <div>
-          <h3>Register</h3>
-        </div>
-        <div>
-          <p>
-            Aleady have an account? <Link to="/login">Log in! </Link>
-          </p>
-        </div>
-        <form>
-          <label htmlFor="name">Name:</label>
-          <input
-            type={"text"}
-            id="name"
-            name="name"
-            value={name}
-            placeholder="Enter your name"
-            onChange={formChange}
-          />
-          <label htmlFor="email">Email:</label>
-          <input
-            type={"text"}
-            id="email"
-            name="email"
-            value={email}
-            placeholder="Enter your email"
-            onChange={formChange}
-          />
-          <label htmlFor="password">Password:</label>
-          <input
-            type={"text"}
-            id="password"
-            name="password"
-            value={password}
-            placeholder="Enter your password"
-            onChange={formChange}
-          />
-          <label htmlFor="password">Confirm Password:</label>
-          <input
-            type={"text"}
-            id="confirm_password"
-            name="confirm_password"
-            value={confirm_password}
-            placeholder="Confirm your password"
-            onChange={formChange}
-          />
-          <input type="submit" value="Submit" onSubmit={formSubmit} />
-        </form>
-      </section>
-      <section>{formData.email}</section>
-      <section>{formData.password}</section>
-    </Layout>
+    <div className="register-container">
+      <div className="register-header">
+        <h3>Register</h3>
+      </div>
+      <div className="register-error">{error}</div>
+      <div className="register-login">
+        <p>
+          Aleady have an account? <Link to="/login">Log in! </Link>
+        </p>
+      </div>
+      <form className="register-form">
+        <label className="register-form-name" htmlFor="name">
+          Name:
+        </label>
+        <input
+          type={"text"}
+          id="name"
+          name="name"
+          value={name}
+          placeholder="Enter your name"
+          onChange={formChange}
+        />
+        <label className="register-form-email" htmlFor="email">
+          Email:
+        </label>
+        <input
+          type={"text"}
+          id="email"
+          name="email"
+          value={email}
+          placeholder="Enter your email"
+          onChange={formChange}
+        />
+        <label className="register-form-password" htmlFor="password">
+          Password:
+        </label>
+        <input
+          type={"text"}
+          id="password"
+          name="password"
+          value={password}
+          placeholder="Enter your password"
+          onChange={formChange}
+        />
+        <label className="register-form-confirm" htmlFor="confirm_password">
+          Confirm Password:
+        </label>
+        <input
+          type={"text"}
+          id="confirm_password"
+          name="confirm_password"
+          value={confirm_password}
+          placeholder="Confirm your password"
+          onChange={formChange}
+        />
+        <button type="submit" value="Submit" onClick={formSubmit}>
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 

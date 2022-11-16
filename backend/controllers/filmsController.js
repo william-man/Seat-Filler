@@ -7,7 +7,12 @@ const Film = require("../models/filmsSchema");
 
 const getFilms = asyncHandler(async (req, res) => {
   const films = await Film.find();
-  res.status(200).json(films);
+  if (!films) {
+    res.status(500);
+    throw new Error("Error retrieving data.");
+  } else {
+    res.status(200).json(films);
+  }
 });
 
 module.exports = {

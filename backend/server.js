@@ -10,6 +10,8 @@ connectDB();
 const filmRoutes = require("./routes/filmsRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/userRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
+const bookingRoutes = require("./routes/bookingRoutes");
 //@Middleware
 const { errorHandler } = require("./middleware/errorMiddleware");
 
@@ -24,7 +26,8 @@ app.get("/", (req, res) => {
 app.use("/films", filmRoutes);
 app.use("/admin", adminRoutes);
 app.use("/users", userRoutes);
-
+app.use("/payment", paymentRoutes);
+app.use("/booking", bookingRoutes);
 app.use(errorHandler);
 
 app.listen(port, () => {

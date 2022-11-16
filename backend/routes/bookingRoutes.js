@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { checkout } = require("../controllers/paymentControllers");
+const { getTickets } = require("../controllers/bookingControllers");
 
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-router.post("/pay", urlencodedParser, jsonParser, checkout);
+router.get("/", urlencodedParser, jsonParser, getTickets);
 
 module.exports = router;

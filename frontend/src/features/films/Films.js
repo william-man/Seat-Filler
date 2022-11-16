@@ -1,44 +1,75 @@
 import React from "react";
-import Layout from "../../components/layout/Layout";
 import { useEffect } from "react";
-import filmStore from "./film_store";
 import { fetchFilms } from "./filmSlice";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Spinner from "../../components/spinner";
+import { Link } from "react-router-dom";
+import "../../styles/features/films/films.scss";
 
 const Films = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    filmStore.dispatch(fetchFilms());
-  }, []);
-  const isLoading = useSelector((state) => state.film.isLoading);
-  const isError = useSelector((state) => state.film.isError);
-  const errorMessage = useSelector((state) => state.film.error);
-  const data = useSelector((state) => state.film.data);
+    dispatch(fetchFilms());
+  }, [dispatch]);
+
+  const { isLoading, isError, data } = useSelector((state) => state.film);
+
   return (
-    <Layout>
-      <div>
+    <div className="films-container">
+      <div className="films-heading">
         <h2>Films</h2>
       </div>
-      <div>{isLoading && "Loading..."}</div>
-      <div>{isError && errorMessage}</div>
-      <div>
-        {data !== undefined &&
-          data.length !== 0 &&
-          data.map((film) => {
+      {isLoading && (
+        <div className="films-result">
+          <div className="films-loader">
+            <Spinner />
+          </div>
+        </div>
+      )}
+      {isError && data && (
+        <div className="films-result">
+          <div className="films-error">{data.error}</div>
+        </div>
+      )}
+      {data !== undefined && data.length !== 0 && (
+        <div className="films-result">
+          {data.map((film) => {
             return (
-              <div key={film._id}>
-                <img src={film.image} alt={film.name + " image"} />
-                <p>{film.name}</p>
-                <p>{film.desc}</p>
-                <p>{film.duration}</p>
-                <p>{film.directors}</p>
-                <p>{film.stars}</p>
-                <p>{film.rating.$numberDecimal}</p>
-                <p>{film.release}</p>
+              <div className="films-result-film" key={film._id}>
+                <div className="films-result-image">
+                  <img src={film.image} alt={film.name + " image"} />
+                </div>
+                <div className="films-result-name">
+                  <p>{film.name}</p>
+                </div>
+                <div className="films-result-release">
+                  <p>Release: {film.release}</p>
+                </div>
+                <div className="films-result-duration">
+                  <p>Duration: {film.duration}</p>
+                </div>
+                <div className="films-result-rating">
+                  <p>Rating: {film.rating.$numberDecimal}</p>
+                </div>
+                <div className="films-result-directors">
+                  <p>Directors: {film.directors}</p>
+                </div>
+                <div className="films-result-stars">
+                  <p>{film.stars}</p>
+                </div>
+                <div className="films-result-desc">
+                  <p>{film.desc}</p>
+                </div>
+                <div className="films-result-buy">
+                  
+                  <Link to={`/films/${film.name}`}>Buy Tickets</Link>
+                </div>
               </div>
             );
           })}
-      </div>
-    </Layout>
+        </div>
+      )}
+    </div>
   );
 };
 

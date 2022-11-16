@@ -1,0 +1,19 @@
+const mongoose = require("mongoose");
+
+const bookingSchema = mongoose.Schema(
+  {
+    name: {
+      type: String,
+    },
+    price: {
+      type: mongoose.Decimal128,
+    },
+    stock: {
+      type: Number,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+module.exports = mongoose.model("Tickets", bookingSchema);

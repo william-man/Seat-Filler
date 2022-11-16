@@ -7,11 +7,12 @@ const {
 } = require("../controllers/userController");
 
 const bodyParser = require("body-parser");
+const jsonParser = bodyParser.json();
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const { protect } = require("../middleware/authMiddleware");
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
-router.post("/register", urlencodedParser, registerUser);
-router.post("/login", urlencodedParser, loginUser);
+router.post("/register", urlencodedParser, jsonParser, registerUser);
+router.post("/login", urlencodedParser, jsonParser, loginUser);
 router.get("/profile", protect, getUser);
 
 module.exports = router;
