@@ -12,10 +12,11 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const width = Size();
+
   const logOut = () => {
     dispatch(logoutUser());
     dispatch(reset());
-    navigate("/");
+    navigate("/home");
   };
   useEffect(() => {
     const toggleDisplay = () => {
@@ -62,11 +63,12 @@ const Header = () => {
             </div>
             {localStorage.getItem("user") ? (
               <>
+                {/*
                 <div className="nav-link">
                   <Link to="profile">{localStorage.getItem("user").name}</Link>
-                </div>
+            </div>*/}
                 <div className="nav-link">
-                  <button onClick={logOut}>Logout</button>
+                  <button className="logout" onClick={logOut}>Logout</button>
                 </div>
               </>
             ) : (
