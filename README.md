@@ -9,6 +9,7 @@ The purpose of this project was to imitate a cinema booking website that allows 
 to purchase tickets, register an account and browse a catalogue of films available for viewing.
 
 **Objectives**:
+
 Frontend
 -create a home page, catalogue, signup, login and purchasing pages
 -fetch film data from the database to display it on the catalogue page
@@ -29,6 +30,8 @@ To create a user authentication, an authentication middleware was created in /ba
 jsonwebtoken and bcrypt for hashing passwords in userControllers.
 
 ## **22/8/22 - 28/9/22**
+
+22/8/22 - 28/9/22
 
 Began project. Packages installed:
 -express (backend framework to handle html requests)
