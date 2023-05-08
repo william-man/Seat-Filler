@@ -8,7 +8,7 @@ Access to MongoDB requires a dev token; reach out to @william-man for access.
 The purpose of this project was to imitate a cinema booking website that allows the user
 to purchase tickets, register an account and browse a catalogue of films available for viewing.
 
-Objectives:
+**Objectives**:
 Frontend
 -create a home page, catalogue, signup, login and purchasing pages
 -fetch film data from the database to display it on the catalogue page
@@ -17,7 +17,7 @@ Backend
 -connect routes to the frontend and to MongoDB queries to allow for CRUD operations.
 -create a user authentication to allow users to sign up and register for an account.
 
-Methods:
+## **Methods:**
 
 Used React to create the layout for each page and react-router-dom v6 to handle clientside routing between pages.
 Examples of usage can be found in /frontend/index. To fetch data, axios was used in combination with redux to have
@@ -28,7 +28,8 @@ For the backend, Express was used to handle routing and http requests; testing r
 To create a user authentication, an authentication middleware was created in /backend/middleware/ using
 jsonwebtoken and bcrypt for hashing passwords in userControllers.
 
-22/8/22 - 28/9/22
+## **22/8/22 - 28/9/22**
+
 Began project. Packages installed:
 -express (backend framework to handle html requests)
 -dotenv (to be able to use environment variables)
@@ -37,17 +38,20 @@ Began project. Packages installed:
 -express-async-handler (to assist with building asynchronous functions to database)
 -nodemon (monitor and update changes live during backend development)
 
-29/8/22 - 4/9/22
+## **29/8/22 - 4/9/22**
+
 Installed react for frontend.
 -concurrently
 -jest
 
-5/9/22 - 11/9/22
+## **5/9/22 - 11/9/22**
+
 Installed Redux for statemanagement
 Created boiler plates for home page and film page.
 Connected backend data fetching for films to frontend.
 
-12/9/22 - 25/9/22
+## **12/9/22 - 25/9/22**
+
 Installed bcrypt and jwt
 Built admin controllers and user login/register controllers.
 
