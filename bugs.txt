@@ -1,0 +1,5 @@
+31/5/23
+-clicking on booking time redirects to home page. [x]
+-card number allows non-numeric characters. [x]
+-successful registration does not redirect to home page. [x]
+-does not check valid email. [x]

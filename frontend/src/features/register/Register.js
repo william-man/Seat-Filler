@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { registerUser, reset } from "../auth/authSlice";
 import Spinner from "../../components/spinner";
 import "../../styles/features/register/register.scss";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const Register = () => {
     confirm_password: "",
   });
   const [error, setError] = useState("");
+  const [hide, setHide] = useState(true);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -33,7 +35,13 @@ const Register = () => {
   // handle user submit
   const formSubmit = (e) => {
     dispatch(reset());
-    if (password !== confirm_password) {
+    if (name === "") {
+      setError("Please enter your name.");
+    } else if (!/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(email)) {
+      setError("Please enter a valid email address.");
+    } else if (!password || password.length < 6) {
+      setError("Please enter a password. Minimum 6 characters.");
+    } else if (password !== confirm_password) {
       setError("Your passwords do not match.");
     } else {
       const userData = {
@@ -46,22 +54,39 @@ const Register = () => {
     e.preventDefault();
   };
 
+  // show password
+  const showPass = () => {
+    let hidden = document.getElementById("password");
+    let confirm_hidden = document.getElementById("confirm_password");
+    if (hidden.type === "password" && confirm_hidden.type === "password") {
+      hidden.type = "text";
+      confirm_hidden.type = "text";
+      setHide(false);
+    } else {
+      hidden.type = "password";
+      confirm_hidden.type = "password";
+      setHide(true);
+    }
+  };
+
   //reset auth state on load
   useEffect(() => {
     dispatch(reset());
   }, [dispatch]);
   // Check and watch state changes for register
 
+  //successful registration redirects to home page
   useEffect(() => {
     if (isError) {
       setError(message);
     }
     if (isSuccess || user) {
       dispatch(reset());
-      navigate("/");
+      navigate("/home");
     }
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
+  //registration loading spinner
   if (isLoading) {
     return <Spinner />;
   }
@@ -102,20 +127,25 @@ const Register = () => {
         />
         <label className="register-form-password" htmlFor="password">
           Password:
+          <button type="button" onClick={showPass}>
+            {hide ? <IoEyeOffOutline /> : <IoEyeOutline />}
+          </button>
         </label>
+
         <input
-          type={"text"}
+          type={"password"}
           id="password"
           name="password"
           value={password}
           placeholder="Enter your password"
           onChange={formChange}
         />
+
         <label className="register-form-confirm" htmlFor="confirm_password">
           Confirm Password:
         </label>
         <input
-          type={"text"}
+          type={"password"}
           id="confirm_password"
           name="confirm_password"
           value={confirm_password}
