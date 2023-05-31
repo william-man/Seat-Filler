@@ -1,3 +1,6 @@
+-card number allows non-numeric characters when at length 12.
+-clear registration error after each submit request.
+
 31/5/23
 -clicking on booking time redirects to home page. [x]
 -card number allows non-numeric characters. [x]

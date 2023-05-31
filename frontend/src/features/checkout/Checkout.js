@@ -38,7 +38,7 @@ const Checkout = () => {
     if (order.card.length === 12 && /[0-9]/.test(order.card)) {
       dispatch(confirmPayment(order));
     } else {
-      setError({ status: true, message: "Card number is invalid." });
+      setError({ status: true, message: "Card number is invalid" });
     }
   };
 
