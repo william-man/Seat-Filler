@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser, reset } from "../auth/authSlice";
 import { useSelector, useDispatch } from "react-redux";
-
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import Spinner from "../../components/spinner";
 import "../../styles/features/login/login.scss";
 
@@ -21,6 +21,8 @@ const Login = () => {
     (state) => state.auth
   );
 
+  const [hide, setHide] = useState(true);
+
   const formChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -31,6 +33,7 @@ const Login = () => {
   const formSubmit = (e) => {
     dispatch(reset());
     setError("");
+    setHide(true)
     e.preventDefault();
     const userData = {
       email,
@@ -38,6 +41,17 @@ const Login = () => {
     };
 
     dispatch(loginUser(userData));
+  };
+
+  const showPass = () => {
+    let hidden = document.getElementById("password");
+    if (hidden.type === "password") {
+      hidden.type = "text";
+      setHide(false);
+    } else {
+      hidden.type = "password";
+      setHide(true);
+    }
   };
 
   //reset auth state on load
@@ -71,7 +85,7 @@ const Login = () => {
         </p>
       </div>
       <form className="login-form">
-        <label className="login-form-email" htmlFor="email" >
+        <label className="login-form-email" htmlFor="email">
           Email:
         </label>
         <input
@@ -84,9 +98,12 @@ const Login = () => {
         />
         <label className="login-form-password" htmlFor="password">
           Password:
+          <button type="button" onClick={showPass}>
+            {hide ? <IoEyeOffOutline /> : <IoEyeOutline />}
+          </button>
         </label>
         <input
-          type={"text"}
+          type={"password"}
           id="password"
           name="password"
           value={password}

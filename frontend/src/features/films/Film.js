@@ -18,35 +18,45 @@ const Film = () => {
   const [tickets, setTickets] = useState({
     id: "",
     name: "",
-    price: 0,
+    ticket_price: 0,
     amount: 1,
     time: "13:00",
   });
+  console.log(tickets);
 
   useEffect(() => {
     const selectedFilm = { film_name: params.film_name };
     dispatch(fetchTickets(selectedFilm));
   }, [dispatch, params]);
 
+  useEffect(() => {
+    if (params.film_name === data.name) {
+      setTickets((tickets) => ({
+        ...tickets,
+        id: data._id,
+        name: data.name,
+        ticket_price: data.price["$numberDecimal"],
+      }));
+    }
+  }, [data, params.film_name]);
+
+  // change initial amount to selected amount
   const onSelectAmount = (e) => {
-    setTickets((prevState) => {
-      return { ...prevState, amount: e.target.value };
-    });
+    setTickets((tickets) => ({ ...tickets, amount: e.target.value }));
   };
+
+  // change initial time to selected time
   const onSelectTime = (e) => {
-    setTickets((prevState) => {
-      return { ...prevState, time: e.target.value };
-    });
+    setTickets((tickets) => ({ ...tickets, time: e.target.value }));
   };
+
+  // confirm selected time and tickets and direct to checkout page
   const selectTickets = (e) => {
     localStorage.removeItem("basket");
     localStorage.setItem(
       "basket",
       JSON.stringify({
         ...tickets,
-        id: params.film_id,
-        name: data.name,
-        price: data.price.$numberDecimal,
       })
     );
     navigate("/films/" + params.film_id + "/checkout");
@@ -62,16 +72,16 @@ const Film = () => {
           <form className="film-form">
             <div className="film-form-name">{data.name}</div>
             <div className="film-form-time">
-              <button value={"13:00"} onClick={onSelectTime}>
+              <button type="button" value={"13:00"} onClick={onSelectTime}>
                 13:00
               </button>
-              <button value={"15:00"} onClick={onSelectTime}>
+              <button type="button" value={"15:00"} onClick={onSelectTime}>
                 15:00
               </button>
-              <button value={"17:00"} onClick={onSelectTime}>
+              <button type="button" value={"17:00"} onClick={onSelectTime}>
                 17:00
               </button>
-              <button value={"19:00"} onClick={onSelectTime}>
+              <button type="button" value={"19:00"} onClick={onSelectTime}>
                 19:00
               </button>
             </div>
@@ -94,7 +104,9 @@ const Film = () => {
             <div className="film-form-price">
               Adult: {"£" + data.price.$numberDecimal + ".00"}
             </div>
-            <button onClick={selectTickets}>Checkout</button>
+            <button type="button" onClick={selectTickets}>
+              Checkout
+            </button>
           </form>
         </div>
       )}
