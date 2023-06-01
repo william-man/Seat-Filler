@@ -35,6 +35,7 @@ const Register = () => {
   // handle user submit
   const formSubmit = (e) => {
     dispatch(reset());
+    setError("");
     if (name === "") {
       setError("Please enter your name.");
     } else if (!/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(email)) {
@@ -44,6 +45,7 @@ const Register = () => {
     } else if (password !== confirm_password) {
       setError("Your passwords do not match.");
     } else {
+      setHide(true);
       const userData = {
         name,
         email,

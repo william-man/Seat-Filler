@@ -35,7 +35,7 @@ const Checkout = () => {
     dispatch(resetPayment());
     setError({ status: false, message: "" });
 
-    if (order.card.length === 12 && /[0-9]/.test(order.card)) {
+    if (order.card.length === 12 && /^[0-9]+$/.test(order.card)) {
       dispatch(confirmPayment(order));
     } else {
       setError({ status: true, message: "Card number is invalid" });
@@ -44,6 +44,10 @@ const Checkout = () => {
 
   // request state
   useEffect(() => {
+    setError({
+      status: false,
+      err_message: "",
+    });
     if (isError) {
       setError({
         status: true,
