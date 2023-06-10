@@ -51,7 +51,7 @@ const Home = () => {
     };
     changeSlideImages();
   }, [total]);
- 
+
   return (
     <div className="home-container">
       <div className="carousel">
@@ -111,28 +111,52 @@ const Home = () => {
         </CarouselProvider>
       </div>
       <div className="events">
-        <div>
-          <h2>Events</h2>
+        <div className="events-container">
+          <div>
+            <h2>Superhero season</h2>
+          </div>
+          <div>
+            <p>
+              Time to suit up! The greatest action spectacles of our time await
+              you this superhero season at Seatfiller. Watch with awe as mighty
+              heroes save the earth from calamity and foil the schemes of mad
+              villains. An adventure for the whole family - with awesome visual
+              effects, dramatic stories and heroic values. Super deals available
+              all season long!
+            </p>
+          </div>
+          <div className="events-link">
+            <Link to={"/films"}>Book Now</Link>
+          </div>
         </div>
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            pulvinar diam ac erat semper consequat eu nec justo. Morbi hendrerit
-            feugiat purus eget porta. Pellentesque vulputate mollis augue, et
-            tristique lectus fermentum sagittis. Maecenas arcu purus, vulputate
-            pharetra sagittis eu, dapibus in nulla. Fusce commodo id nibh in
-            malesuada. In sed augue eu risus volutpat pellentesque et nec nisi.
-            Fusce facilisis dolor sit amet lacinia commodo. Etiam nec diam eu
-            lacus tristique fermentum pretium nec nibh. Integer dapibus et ante
-            quis lacinia. Vestibulum rutrum massa nisi, sed vulputate massa
-            ultrices ut. Nullam tortor arcu, condimentum nec nibh vel, sagittis
-            finibus tellus. Aenean sed nibh accumsan, auctor odio a, tincidunt
-            tellus. Proin lectus eros, dapibus id tortor vel, accumsan aliquet
-            nunc. Praesent a ligula congue, condimentum massa sed, porta dui.
-          </p>
-        </div>
-        <div className="events-link">
-          <Link to={"/films"}>Book Now</Link>
+      </div>
+      <div className="deals">
+        
+        <div className="deals-container">
+          <div className="deal-1">
+            <h2>Team Ticket Tuesday</h2>
+            <p>
+              United we stand! Every Tuesday, any group of 6 or more tickets are
+              buy 5 get 1 free. Suitable for school and sports teams, friend
+              groups, or assemble your own squad to save.
+            </p>
+          </div>
+          <div className="deal-2">
+            <h2>Family 4-pack</h2>
+            <p>
+              Bring the whole crew and save! Any group of 4 tickets only $40.
+              Perfect for friends and family to enjoy superhero adventures
+              together on the big screen.
+            </p>
+          </div>
+          <div className="deal-3">
+            <h2>Opening Night discount</h2>
+            <p>
+              The first to see the newest superhero movie will pay the lowest
+              price. Tickets for opening night screenings are discounted by up
+              to 30%. For the earliest audiences and die-hard fans.
+            </p>
+          </div>
         </div>
       </div>
     </div>

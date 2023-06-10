@@ -1,14 +1,24 @@
+@font-face {
+  font-family: WorkSans-Light;
+  src: url("../../fonts/Work_Sans/static/WorkSans-Light.ttf");
+}
+@font-face {
+  font-family: WorkSans-Bold;
+  src: url("../../fonts/Work_Sans/static/WorkSans-Bold.ttf");
+}
 .header-container {
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: auto;
-  margin: 50px 20%;
-  margin-top: 30px;
-  border-bottom: 2px grey solid;
-
+  padding: 50px 20%;
+  padding-top: 30px;
+  background-color: #090e27;
+  color: #fff;
+  font-family: "WorkSans-Light";
   .logo {
     grid-column: 1;
     grid-row: 1;
+    font-family: "WorkSans-Bold";
     h1 {
       margin: 0%;
     }
@@ -37,6 +47,9 @@
       text-align: end;
       a {
         text-decoration: none;
+      }
+      a:visited {
+        color: #fff;
       }
       .logout {
         padding: 3px 20px;
