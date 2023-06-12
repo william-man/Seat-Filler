@@ -41,7 +41,7 @@ const Header = () => {
     <>
       <header className="header-container">
         <div className="logo">
-          <h1>Theatre</h1>
+          <h1>Seatfiller</h1>
         </div>
         <div className="toggle">
           <button className="toggle-button" onClick={toggleNav}>
@@ -68,7 +68,9 @@ const Header = () => {
                   <Link to="profile">{localStorage.getItem("user").name}</Link>
             </div>*/}
                 <div className="nav-link">
-                  <button className="logout" onClick={logOut}>Logout</button>
+                  <button className="logout" onClick={logOut}>
+                    Logout
+                  </button>
                 </div>
               </>
             ) : (

@@ -39,29 +39,33 @@ const Films = () => {
                 <div className="films-result-image">
                   <img src={film.image} alt={film.name + " image"} />
                 </div>
-                <div className="films-result-name">
-                  <p>{film.name}</p>
+                <div className="films-result-col2">
+                  <div className="films-result-name">
+                    <p>{film.name}</p>
+                  </div>
+                  <div className="films-result-release">
+                    <p>Release: {film.release}</p>
+                  </div>
+                  <div className="films-result-duration">
+                    <p>Duration: {film.duration}</p>
+                  </div>
+                  <div className="films-result-rating">
+                    <p>Rating: {film.rating.$numberDecimal}</p>
+                  </div>
                 </div>
-                <div className="films-result-release">
-                  <p>Release: {film.release}</p>
-                </div>
-                <div className="films-result-duration">
-                  <p>Duration: {film.duration}</p>
-                </div>
-                <div className="films-result-rating">
-                  <p>Rating: {film.rating.$numberDecimal}</p>
-                </div>
-                <div className="films-result-directors">
-                  <p>Directors: {film.directors}</p>
-                </div>
-                <div className="films-result-stars">
-                  <p>{film.stars}</p>
+
+                <div className="films-result-col3">
+                  <div className="films-result-directors">
+                    <p>Directors: {film.directors}</p>
+                  </div>
+                  <div className="films-result-stars">
+                    <p>Starring: {film.stars}</p>
+                  </div>
                 </div>
                 <div className="films-result-desc">
                   <p>{film.desc}</p>
                 </div>
                 <div className="films-result-buy">
-                  
                   <Link to={`/films/${film.name}`}>Buy Tickets</Link>
                 </div>
               </div>
