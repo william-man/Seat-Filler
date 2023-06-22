@@ -12,7 +12,9 @@
   grid-template-rows: 2;
   font-family: "MerryWeather-Light";
 
+
   padding-bottom: 50px;
+
   .films-heading {
     grid-row-start: 1;
 
@@ -26,6 +28,7 @@
     display: grid;
     grid-auto-rows: max-content;
     gap: 50px;
+
     margin: 0px auto;
     padding: 0px 40px;
     max-width: 880px;
@@ -34,16 +37,19 @@
     }
     .films-error {
       margin: 0px auto;
+
       justify-content: center;
     }
 
     .films-result-film {
       display: grid;
-      grid-template-columns: auto auto auto;
+      grid-template-columns: 220px 220px 220px;
       grid-template-rows: auto auto auto;
       gap: 0 20px;
       margin: 0 auto;
+
       background-color: #fff;
+
       border-radius: 5px;
       padding: 10px 20px;
       .films-result-image {
