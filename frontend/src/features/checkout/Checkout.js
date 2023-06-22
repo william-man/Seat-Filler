@@ -83,8 +83,10 @@ const Checkout = () => {
       <div className="checkout-total-number"> £{order.total}.00</div>
       <form className="checkout-form">
         <label htmlFor="card">Card:</label>
-        <input id="card" type={"text"} onChange={cardChange} />
-        <button onClick={payment}>Confirm payment</button>
+        <input className="card" id="card" type={"text"} onChange={cardChange} />
+        <button className="confirm" onClick={payment}>
+          Confirm payment
+        </button>
       </form>
     </div>
   );

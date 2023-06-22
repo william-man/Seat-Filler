@@ -14,6 +14,7 @@
   background-color: #fff;
   border-radius: 4px;
   font-family: "MerryWeather-Light";
+  font-size: 1.2rem;
   .register-header {
     grid-column: 1;
     grid-row: 1;
@@ -22,6 +23,11 @@
     grid-column: 1;
     grid-row: 2;
     text-align: center;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #b70015;
+    border-radius: 5px;
+    padding: 5px 20px;
   }
 
   .register-login {
@@ -36,6 +42,7 @@
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto auto auto;
     gap: 10px;
+    padding: 5px;
 
     .register-form-name {
       grid-column: 1;
@@ -44,6 +51,7 @@
     #name {
       grid-column: 2;
       grid-row: 1;
+      padding: 5px 2px;
     }
     .register-form-email {
       grid-column: 1;
@@ -52,14 +60,31 @@
     #email {
       grid-column: 2;
       grid-row: 2;
+      padding: 5px 2px;
     }
     .register-form-password {
       grid-column: 1;
       grid-row: 3;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto;
+
+      .register-form-password-label {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      .register-form-password-hider {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 2px 30px;
+        max-width: 100px;
+        margin: 0 auto;
+      }
     }
     #password {
       grid-column: 2;
       grid-row: 3;
+      padding: 5px 2px;
     }
     .register-form-confirm {
       grid-column: 1;
@@ -68,18 +93,25 @@
     #confirm_password {
       grid-column: 2;
       grid-row: 4;
+      padding: 5px 2px;
     }
-    button {
+    #submit {
       grid-column: 1/3;
       grid-row: 5;
-      max-width: 33%;
-      margin: 10px 33%;
+      padding: 10px 50px;
+      margin: 10px auto;
+      background-color: #750031;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-size: 1.2rem;
+      font-family: "MerryWeather-Light";
     }
   }
 }
 @media only screen and (max-width: 1007px) {
   .register-container {
-    margin: 0px;
+    padding: 50px;
   }
 }
 
@@ -88,6 +120,50 @@
     margin: 0px 10%;
     .register-form {
       margin-top: 30px;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto;
+      gap: 15px;
+      .register-form-name {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      #name {
+        grid-column: 1;
+        grid-row: 2;
+        padding: 8px 2px;
+      }
+      .register-form-email {
+        grid-column: 1;
+        grid-row: 3;
+      }
+      #email {
+        grid-column: 1;
+        grid-row: 4;
+        padding: 8px 2px;
+      }
+      .register-form-password {
+        grid-column: 1;
+        grid-row: 5;
+      }
+      #password {
+        grid-column: 1;
+        grid-row: 6;
+        padding: 8px 2px;
+      }
+      .register-form-confirm {
+        grid-column: 1;
+        grid-row: 7;
+      }
+      #confirm_password {
+        grid-column: 1;
+        grid-row: 8;
+        padding: 8px 2px;
+      }
+      #submit {
+        grid-column: 1;
+        grid-row: 9;
+      }
     }
   }
 }
