@@ -98,7 +98,7 @@ const Register = () => {
       <div className="register-header">
         <h3>Register</h3>
       </div>
-      <div className="register-error">{error}</div>
+      {isError && <div className="register-error">{error}</div>}
       <div className="register-login">
         <p>
           Aleady have an account? <Link to="/login">Log in! </Link>
@@ -127,12 +127,18 @@ const Register = () => {
           placeholder="Enter your email"
           onChange={formChange}
         />
-        <label className="register-form-password" htmlFor="password">
-          Password:
-          <button type="button" onClick={showPass}>
+        <div className="register-form-password">
+          <label className="register-form-password-label" htmlFor="password">
+            Password:
+          </label>
+          <button
+            className="register-form-password-hider"
+            type="button"
+            onClick={showPass}
+          >
             {hide ? <IoEyeOffOutline /> : <IoEyeOutline />}
           </button>
-        </label>
+        </div>
 
         <input
           type={"password"}
@@ -154,7 +160,7 @@ const Register = () => {
           placeholder="Confirm your password"
           onChange={formChange}
         />
-        <button type="submit" value="Submit" onClick={formSubmit}>
+        <button id="submit" type="submit" value="Submit" onClick={formSubmit}>
           Submit
         </button>
       </form>

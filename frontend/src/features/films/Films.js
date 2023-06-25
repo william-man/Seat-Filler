@@ -31,7 +31,7 @@ const Films = () => {
           <div className="films-error">{data.error}</div>
         </div>
       )}
-      {data !== undefined && data.length !== 0 && (
+      {data !== undefined && data.length !== 0 && !isLoading && !isError && (
         <div className="films-result">
           {data.map((film) => {
             return (

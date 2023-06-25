@@ -33,7 +33,7 @@ const Login = () => {
   const formSubmit = (e) => {
     dispatch(reset());
     setError("");
-    setHide(true)
+    setHide(true);
     e.preventDefault();
     const userData = {
       email,
@@ -96,12 +96,15 @@ const Login = () => {
           placeholder="Enter your email"
           onChange={formChange}
         />
-        <label className="login-form-password" htmlFor="password">
-          Password:
-          <button type="button" onClick={showPass}>
+        <div className="login-form-password">
+          <label id="password-label" htmlFor="password">
+            Password:
+          </label>
+          <button type="button" id="showpass" onClick={showPass}>
             {hide ? <IoEyeOffOutline /> : <IoEyeOutline />}
           </button>
-        </label>
+        </div>
+
         <input
           type={"password"}
           id="password"
@@ -110,7 +113,7 @@ const Login = () => {
           placeholder="Enter your password"
           onChange={formChange}
         />
-        <button type="submit" value="Submit" onClick={formSubmit}>
+        <button id="submit" type="submit" value="Submit" onClick={formSubmit}>
           Submit
         </button>
       </form>

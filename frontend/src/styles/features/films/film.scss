@@ -3,6 +3,12 @@
   src: url("../../../fonts/Merriweather/Merriweather-Light.ttf");
 }
 
+@font-face {
+  font-family: MerryWeather-Bold;
+  src: url("../../../fonts/Merriweather/Merriweather-Bold.ttf");
+}
+
+
 .film-container {
   display: grid;
   grid-template-columns: 100%;
@@ -15,6 +21,7 @@
     grid-column: 1;
     grid-row: 1;
     text-align: center;
+    margin: 0 auto;
   }
   .film-error {
     grid-column: 1;
@@ -22,7 +29,7 @@
     text-align: center;
   }
   .film-form-container {
-    background-color: #d1d1d1;
+    background-color: #fff;
     padding: 10px 15px;
     border-radius: 5px;
     grid-column: 1;
@@ -37,14 +44,18 @@
         grid-column: 1/5;
         grid-row: 1;
         margin-bottom: 20px;
+        font-size: 1.3rem;
+        font-family: "MerryWeather-Bold";
       }
       .film-form-time {
         grid-column: 1/5;
         grid-row: 2;
         text-align: center;
+
         button {
           padding: 5px 10px;
           margin: 10px 10px;
+          font-size: 1.2rem;
         }
       }
       .film-form-tickets {
@@ -52,74 +63,51 @@
         grid-row: 3;
         margin-top: 30px;
         margin-bottom: 20px;
+        font-size: 1.2rem;
+        #tickets {
+          font-size: 1.2rem;
+          padding: 4px 8px;
+          margin-left: 3px;
+        }
       }
       .film-form-price {
         grid-column: 3/5;
         grid-row: 3;
         margin-top: 30px;
         margin-bottom: 20px;
+        font-size: 1.2rem;
       }
-      button {
+      .checkout {
         grid-column: 1/5;
         grid-row: 5;
         max-width: 33%;
         margin: 10px auto;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 3px;
+        background-color: #750031;
+        color: #fff;
+        padding: 5px 10px;
       }
     }
   }
 }
 @media only screen and (max-width: 1007px) {
   .film-container {
-    margin: 0;
-    .film-form-container {
-    }
+    margin: 0 auto;
   }
 }
 
 @media only screen and (max-width: 640px) {
   .film-container {
+    padding: 3px;
     .film-form-container {
-      background-color: #d1d1d1;
       padding: 10px 15px;
       border-radius: 5px;
       grid-column: 1;
       grid-row: 3;
       .film-form {
-        background-color: D1D1D1;
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-        grid-template-rows: auto auto auto auto auto;
-
-        .film-form-name {
-          grid-column: 1/5;
-          grid-row: 1;
-          margin-bottom: 20px;
-        }
-        .film-form-time {
-          grid-column: 1/5;
-          grid-row: 2;
-          text-align: center;
-          button {
-            padding: 5px 10px;
-            margin: 10px 10px;
-          }
-        }
-        .film-form-tickets {
-          grid-column: 1/3;
-          grid-row: 3;
-          margin-top: 30px;
-          margin-bottom: 20px;
-        }
-        .film-form-price {
-          grid-column: 3/5;
-          grid-row: 3;
-          margin-top: 30px;
-          margin-bottom: 20px;
-        }
-        button {
-          grid-column: 1/5;
-          grid-row: 5;
-          max-width: 33%;
+        .checkout {
           margin: 10px auto;
         }
       }

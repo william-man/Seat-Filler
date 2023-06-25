@@ -22,7 +22,6 @@ const Film = () => {
     amount: 1,
     time: "13:00",
   });
-  console.log(tickets);
 
   useEffect(() => {
     const selectedFilm = { film_name: params.film_name };
@@ -104,7 +103,7 @@ const Film = () => {
             <div className="film-form-price">
               Adult: {"£" + data.price.$numberDecimal + ".00"}
             </div>
-            <button type="button" onClick={selectTickets}>
+            <button className="checkout" type="button" onClick={selectTickets}>
               Checkout
             </button>
           </form>
