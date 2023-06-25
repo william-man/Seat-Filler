@@ -29,6 +29,30 @@ For the backend, Express was used to handle routing and http requests; testing r
 To create a user authentication, an authentication middleware was created in /backend/middleware/ using
 jsonwebtoken and bcrypt for hashing passwords in userControllers.
 
+## 19/6/23 - 25/6/23
+Made changes to layout to be more responsive. Added svg background and fixed layout bugs.
+
+## 5/6/23 - 11/6/23
+
+Fixed input bugs.
+
+## **29/8/22 - 4/10/22**
+
+Installed react for frontend.
+-concurrently
+-jest
+
+## **12/9/22 - 25/9/22**
+
+Installed bcrypt and jwt
+Built admin controllers and user login/register controllers.
+
+## **5/9/22 - 11/9/22**
+
+Installed Redux for statemanagement
+Created boiler plates for home page and film page.
+Connected backend data fetching for films to frontend.
+
 ## **22/8/22 - 28/9/22**
 
 22/8/22 - 28/9/22
@@ -40,22 +64,5 @@ Began project. Packages installed:
 -colors (highlight console messages)
 -express-async-handler (to assist with building asynchronous functions to database)
 -nodemon (monitor and update changes live during backend development)
-
-## **29/8/22 - 4/9/22**
-
-Installed react for frontend.
--concurrently
--jest
-
-## **5/9/22 - 11/9/22**
-
-Installed Redux for statemanagement
-Created boiler plates for home page and film page.
-Connected backend data fetching for films to frontend.
-
-## **12/9/22 - 25/9/22**
-
-Installed bcrypt and jwt
-Built admin controllers and user login/register controllers.
 
 Hosted on onrender.com
