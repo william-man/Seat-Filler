@@ -12,11 +12,18 @@
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto auto;
+<<<<<<< HEAD
+=======
+
+  max-width: 80%;
+  margin: 0 auto;
+>>>>>>> 9a1d4866eed580a1ff5968f43b8ac32ff5824f52
 
   .carousel {
     grid-row-start: 1;
     display: grid;
     grid-template-rows: auto auto;
+
     .img-container {
       grid-row-start: 1;
       display: grid;
@@ -47,12 +54,17 @@
       .button-slide {
         margin: 20px 20px;
         width: 60px;
+        height: 20px;
+        background-color: #750031;
+        color: #fff;
+        border: none;
       }
     }
   }
 
   .events {
     grid-row-start: 2;
+<<<<<<< HEAD
     margin: auto;
     background: linear-gradient(
       to right,
@@ -61,11 +73,24 @@
       rgb(0, 0, 0, 0.8)
     );
 
+=======
+
+
+    background: linear-gradient(
+      to right,
+      rgb(0, 0, 0, 0.8),
+      rgb(0, 0, 0, 0),
+      rgb(0, 0, 0, 0.8)
+    );
+
+
+>>>>>>> 9a1d4866eed580a1ff5968f43b8ac32ff5824f52
     border-radius: 5px;
     color: #fff;
     font-size: 1.3rem;
 
     .events-container {
+<<<<<<< HEAD
       margin: 0 auto;
       width: 80%;
       h2 {
@@ -106,12 +131,64 @@
       grid-template-columns: auto auto auto;
       grid-template-rows: auto;
       font-size: 1.2rem;
+=======
+      margin: 30px auto;
+      padding: 0 30px;
+      h2 {
+        font-family: "WorkSans-Bold";
+      }
+      p {
+        font-family: "MerryWeather-Light";
+      }
+      .events-link {
+        text-align: center;
+        align-items: center;
+        background-color: #750031;
+        width: 200px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin: 0 auto;
+        a {
+          text-decoration: none;
+          color: #fff;
+          font-family: "MerryWeather-Light";
+        }
+      }
+    }
+  }
+
+  .deals {
+    grid-row-start: 3;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    color: #fff;
+    margin: 0 auto;
+    padding-top: 100px;
+
+    font-family: "MerryWeather-Light";
+    .deals-container {
+      grid-row-start: 1;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto;
+      font-size: 1.2rem;
+
+      margin: 0 auto;
+
+>>>>>>> 9a1d4866eed580a1ff5968f43b8ac32ff5824f52
       .deal-1 {
         grid-column-start: 1;
         grid-row-start: 1;
         margin: 0px 10px;
         padding: 30px 50px;
+<<<<<<< HEAD
         width: 350px;
+=======
+
+
+
+>>>>>>> 9a1d4866eed580a1ff5968f43b8ac32ff5824f52
         background: linear-gradient(
           to right,
           rgb(0, 0, 0, 0.8),
@@ -126,7 +203,11 @@
         grid-row-start: 1;
         margin: 0px 10px;
         padding: 30px 50px;
+<<<<<<< HEAD
         width: 350px;
+=======
+
+>>>>>>> 9a1d4866eed580a1ff5968f43b8ac32ff5824f52
         background: linear-gradient(
           to right,
           rgb(0, 0, 0, 0.8),
@@ -141,7 +222,11 @@
         grid-row-start: 1;
         margin: 0px 10px;
         padding: 30px 50px;
+<<<<<<< HEAD
         width: 350px;
+=======
+
+>>>>>>> 9a1d4866eed580a1ff5968f43b8ac32ff5824f52
         background: linear-gradient(
           to right,
           rgb(0, 0, 0, 0.8),
@@ -157,7 +242,10 @@
 
 @media only screen and (max-width: 1007px) {
   .home-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
     .carousel {
+      margin: 0px auto;
       .img-container {
         grid-row-start: 1;
         display: grid;
@@ -177,7 +265,26 @@
       }
     }
     .events {
-      .events-link {
+      margin: 0px auto;
+    }
+    .deals {
+      .deals-container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;
+
+        .deal-1 {
+          grid-column-start: 1;
+          grid-row-start: 1;
+        }
+        .deal-2 {
+          grid-column-start: 1;
+          grid-row-start: 2;
+        }
+        .deal-3 {
+          grid-column-start: 1;
+          grid-row-start: 3;
+        }
       }
     }
   }
@@ -186,6 +293,7 @@
 @media only screen and (max-width: 640px) {
   .home-container {
     .carousel {
+      margin: 0px auto;
       .img-container {
         grid-template-columns: auto;
         .img-1 {
@@ -194,7 +302,26 @@
       }
     }
     .events {
-      .events-link {
+      margin: 0px auto;
+    }
+    .deals {
+      .deals-container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;
+
+        .deal-1 {
+          grid-column-start: 1;
+          grid-row-start: 1;
+        }
+        .deal-2 {
+          grid-column-start: 1;
+          grid-row-start: 2;
+        }
+        .deal-3 {
+          grid-column-start: 1;
+          grid-row-start: 3;
+        }
       }
     }
   }

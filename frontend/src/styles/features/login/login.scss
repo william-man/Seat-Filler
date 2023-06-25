@@ -5,15 +5,10 @@
 
 .login-container {
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns: auto;
   grid-template-rows: auto auto auto auto;
-  margin: 0px auto;
-  padding: 40px 50px;
-  max-width: 600px;
-  color: #000;
-  background-color: #fff;
-  border-radius: 5px;
-  font-family: "MerryWeather-Light";
+  margin: 0px 20%;
+
   .login-header {
     grid-column: 1;
     grid-row: 1;
@@ -22,6 +17,11 @@
     grid-column: 1;
     grid-row: 2;
     text-align: center;
+    color: #fff;
+    background-color: #b70015;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin: 0 auto;
   }
   .login-signup {
     grid-column: 1;
@@ -37,7 +37,8 @@
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto;
-    gap: 10px;
+    gap: 15px;
+
     .login-form-email {
       grid-column: 1;
       grid-row: 1;
@@ -45,34 +46,103 @@
     #email {
       grid-column: 2;
       grid-row: 1;
+      font-family: "MerryWeather-Light";
+      font-size: 1.2rem;
     }
     .login-form-password {
       grid-column: 1;
       grid-row: 2;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto;
+      #password-label {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      #showpass {
+        grid-column: 2;
+        grid-row: 1;
+      }
     }
     #password {
       grid-column: 2;
       grid-row: 2;
+      font-family: "MerryWeather-Light";
+      font-size: 1.2rem;
     }
-    button {
+    #submit {
       grid-column: 1/3;
       grid-row: 3;
-      max-width: 33%;
-      margin: 10px 33%;
+      background-color: #750031;
+      color: #fff;
+      width: 100px;
+      border: none;
+      border-radius: 3px;
+      padding: 5px 5px;
+      margin: 0 auto;
+      font-family: "MerryWeather-Light";
+      font-size: 1.2rem;
     }
   }
 }
 @media only screen and (max-width: 1007px) {
   .login-container {
-    margin: 0px;
+    padding: 40px;
+    gap: 10px;
+    .login-form {
+      gap: 20px;
+    }
+    #submit {
+      margin: 0 auto;
+      width: 80px;
+    }
   }
 }
 
 @media only screen and (max-width: 640px) {
   .login-container {
-    margin: 0px 10%;
+    margin: 0 auto;
+    padding: 10px;
+    gap: 3px;
     .login-form {
       margin-top: 30px;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto auto auto auto auto;
+      .login-form-email {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      #email {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      .login-form-password {
+        grid-column: 1;
+        grid-row: 3;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+        #password-label {
+          grid-column: 1;
+          grid-row: 1;
+        }
+        #showpass {
+          grid-column: 2;
+          grid-row: 1;
+          width: 60px;
+        }
+      }
+      #password {
+        grid-column: 1;
+        grid-row: 4;
+      }
+      #submit {
+        grid-column: 1;
+        grid-row: 5;
+        padding: 5px 25px;
+        margin: 5px auto;
+      }
     }
   }
 }

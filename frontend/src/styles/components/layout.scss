@@ -1,18 +1,21 @@
 main {
+<<<<<<< HEAD
   padding: 2% 20%;
+=======
+  padding: 5% 20%;
+>>>>>>> 9a1d4866eed580a1ff5968f43b8ac32ff5824f52
   min-height: 100vh;
   background-image: url("../../images/layered-steps-haikei.svg");
 }
 
 @media only screen and (max-width: 1007px) {
   main {
-    margin: 50px 10%;
+    padding: 10% 5%;
   }
 }
 
 @media only screen and (max-width: 640px) {
   main {
-    margin: 0px;
-    margin-top: 20px;
+    padding: 10% 0;
   }
 }
